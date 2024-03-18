@@ -1,11 +1,11 @@
 import os
 import openai
 import streamlit as st
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from openai import OpenAI
 from helpers import send_email
 
-load_dotenv()
+# load_dotenv()
 
 logo = "Logo-Happy-2-Change.png.webp"
 title = "Happy 2 Change Maturiteitsbeoordeling AI"
@@ -28,11 +28,11 @@ print("SMTP User: ", smtp_user_toml)
 print("SMTP Password: ", smtp_password_toml)
 
 # Gebruik de omgevingsvariabelen
-smtp_server = os.getenv('SMTP_SERVER')
-smtp_port = int(os.getenv('SMTP_PORT'))  # Zorg dat dit een integer is voor smtplib
-smtp_user = os.getenv('SMTP_USER')
-smtp_password = os.getenv('SMTP_PASSWORD')
-test_mode = os.getenv('TEST')
+# smtp_server = os.getenv('SMTP_SERVER')
+# smtp_port = int(os.getenv('SMTP_PORT'))  # Zorg dat dit een integer is voor smtplib
+# smtp_user = os.getenv('SMTP_USER')
+# smtp_password = os.getenv('SMTP_PASSWORD')
+# test_mode = os.getenv('TEST')
 
 smtp_server = smtp_server_toml
 smtp_port = smtp_port_toml
