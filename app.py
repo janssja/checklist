@@ -10,6 +10,23 @@ load_dotenv()
 logo = "Logo-Happy-2-Change.png.webp"
 title = "Happy 2 Change Maturiteitsbeoordeling AI"
 
+# secrets TOML
+# Toegang krijgen tot de OpenAI API key
+api_key_toml = st.secrets["OPENAI_API_KEY"]
+
+# Toegang krijgen tot SMTP-instellingen
+smtp_server_toml = st.secrets["smtp"]["server"]
+smtp_port_toml = st.secrets["smtp"]["port"]
+smtp_user_toml = st.secrets["smtp"]["user"]
+smtp_password_toml = st.secrets["smtp"]["password"]
+
+# Printen van de variabelen
+print("API Key: ", api_key_toml)
+print("SMTP Server: ", smtp_server_toml)
+print("SMTP Port: ", smtp_port_toml)
+print("SMTP User: ", smtp_user_toml)
+print("SMTP Password: ", smtp_password_toml)
+
 # Gebruik de omgevingsvariabelen
 smtp_server = os.getenv('SMTP_SERVER')
 smtp_port = int(os.getenv('SMTP_PORT'))  # Zorg dat dit een integer is voor smtplib
@@ -17,9 +34,15 @@ smtp_user = os.getenv('SMTP_USER')
 smtp_password = os.getenv('SMTP_PASSWORD')
 test_mode = os.getenv('TEST')
 
+smtp_server = smtp_server_toml
+smtp_port = smtp_port_toml
+smtp_user = smtp_user_toml
+smtp_password = smtp_password_toml
+api_key = api_key_toml
+
 st.sidebar.image(logo, width=150)   
 st.sidebar.title(title)
-api_key = st.sidebar.text_input("Enter your OpenAI API Key:", type="password")
+# api_key = st.sidebar.text_input("Enter your OpenAI API Key:", type="password")
 
 st.sidebar.title('Vul uw gegevens in')
 st.sidebar.write('Enkel nodig als je het rapport ook per mail wilt ontvangen.')
